@@ -1,0 +1,12 @@
+*.pyc
+dist/
+build/
+testenv/
+*.egg-info
+test/testdata/out/*
+venv/
+.cache
+.eggs
+.coverage
+htmlcov
+.pytest*
