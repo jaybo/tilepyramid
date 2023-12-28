@@ -1,0 +1,68 @@
+{
+    "id": "4187b9f5-0aee-497e-b21d-a67451ecc2c6",
+    "pk": "",
+    "name": "unsaved trip",
+    "type": "trip",
+    "access": "public",
+    "bboxPolygon": {
+        "type": "Feature",
+        "bbox": [null, null, null, null],
+        "properties": {},
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [null, null],
+                    [null, null],
+                    [null, null],
+                    [null, null],
+                    [null, null]
+                ]
+            ]
+        }
+    },
+    "events": {
+        "pre": [],
+        "during": [],
+        "post": []
+    },
+    "featureCollection": {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "id": "581486ab552bc6495318301f65570213",
+                "type": "Feature",
+                "properties": {
+                    "isRoute": true,
+                    "name": "route 1",
+                    "color": "#ff0000",
+                    "isVisible": true,
+                    "length": 387.73835,
+                    "colorOuter": "#FFFFFF",
+                    "speed": 6,
+                    "departureTime": "2023-12-26T17:57:21.000Z",
+                    "arrivalTime": "2023-12-29T10:34:44.008Z"
+                },
+                "geometry": {
+                    "coordinates": [
+                        [-122.6223, 48.39416],
+                        [-124.79846, 48.49026],
+                        [-125.00316, 47.39116],
+                        [-124.3922, 46.79512],
+                        [-122.18454, 46.89421],
+                        [-121.87906, 47.85601],
+                        [-122.58451, 48.34604]
+                    ],
+                    "type": "LineString"
+                }
+            }
+        ],
+        "bbox": [null, null, null, null]
+    },
+    "routeCount": 1,
+    "routesTotalLength": 387.73835,
+    "routesTotalDurationInDays": 2.69263,
+    "markerCount": 0,
+    "trackCount": 0,
+    "tracksTotalLength": 0
+}

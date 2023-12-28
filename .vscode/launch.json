@@ -11,6 +11,58 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+
+        {
+            "name": "help",
+            "type": "python",
+            "request": "launch",
+            "program": "tilepyramidcut/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--help"]
+        },
+        {
+            "name": "copy",
+            "type": "python",
+            "request": "launch",
+            "program": "tilepyramidcut/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--src",
+                "c:/junk/",
+                "--dst",
+                "c:/junk2/",
+                "--op",
+                "copy",
+                "--polyfile",
+                "polygons/test2.json",
+                "--zbegin",
+                "3",
+                "--zend",
+                "6"
+            ]
+        },
+        {
+            "name": "prune",
+            "type": "python",
+            "request": "launch",
+            "program": "tilepyramidcut/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--src",
+                "c:/junk/",
+                "--op",
+                "prune",
+                "--polyfile",
+                "polygons/test2.json",
+                "--zbegin",
+                "3",
+                "--zend",
+                "6"
+            ]
         }
     ]
 }

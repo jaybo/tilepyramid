@@ -1,0 +1,106 @@
+{
+    "id": "fccea74f-b0d2-4776-ace9-230efb268857",
+    "pk": "aee7a7a3-f582-45b6-9532-58455576b51a",
+    "name": "unsaved trip",
+    "type": "trip",
+    "access": "public",
+    "bboxPolygon": {
+        "type": "Feature",
+        "bbox": [179.38246, 16.20065, -32.83598, 56.71573],
+        "properties": {},
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [179.38246, 16.20065],
+                    [-32.83598, 16.20065],
+                    [-32.83598, 56.71573],
+                    [179.38246, 56.71573],
+                    [179.38246, 16.20065]
+                ]
+            ]
+        }
+    },
+    "events": {
+        "pre": [],
+        "during": [],
+        "post": []
+    },
+    "featureCollection": {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "id": "8e69d14e5895936592f944f1cdd6b8ca",
+                "type": "Feature",
+                "properties": {
+                    "isRoute": true,
+                    "name": "route 1",
+                    "color": "#ff0000",
+                    "isVisible": true,
+                    "length": 7014.20327,
+                    "colorOuter": "#FFFFFF",
+                    "speed": 2,
+                    "departureTime": "2023-12-27T21:54:00.000Z",
+                    "arrivalTime": "2024-01-03T13:18:49.358Z",
+                    "isEnabled": true,
+                    "endPointSelected": 0
+                },
+                "geometry": {
+                    "coordinates": [
+                        [-163.34754, 53.87677],
+                        [-136.00337, 56.71573],
+                        [-114.60775, 46.39473],
+                        [-120.94008, 18.76274],
+                        [-165.55056, 41.37076],
+                        [-163.34754, 53.47896]
+                    ],
+                    "type": "LineString"
+                }
+            },
+            {
+                "id": "9bf0460245cfca621f028c4239b512ea",
+                "type": "Feature",
+                "properties": {
+                    "isRoute": true,
+                    "name": "route 2",
+                    "color": "#ff0000",
+                    "isVisible": true,
+                    "length": 4928.07837,
+                    "colorOuter": "#FFFFFF",
+                    "speed": 2,
+                    "departureTime": "2024-02-03T21:54:00.000Z",
+                    "arrivalTime": "2024-05-16T13:56:21.059Z",
+                    "isEnabled": true,
+                    "routeMode": "normal",
+                    "geometryOriginal": {
+                        "coordinates": [
+                            [-53.3681, 42.77488],
+                            [-32.83598, 27.06017],
+                            [-49.72221, 16.20065],
+                            [-69.96649, 29.0917],
+                            [-55.47888, 42.06662]
+                        ],
+                        "type": "LineString"
+                    }
+                },
+                "geometry": {
+                    "coordinates": [
+                        [-53.3681, 42.77488],
+                        [-32.83598, 27.06017],
+                        [-49.72221, 16.20065],
+                        [-69.96649, 29.0917],
+                        [-55.47888, 42.06662]
+                    ],
+                    "type": "LineString"
+                }
+            }
+        ],
+        "bbox": [-180.61754, 16.20065, -32.83598, 56.71573]
+    },
+    "routeCount": 2,
+    "routesTotalLength": 11942.28164,
+    "routesTotalDurationInDays": 140.6683,
+    "markerCount": 0,
+    "trackCount": 0,
+    "tracksTotalLength": 0
+}
