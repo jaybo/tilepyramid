@@ -2,7 +2,7 @@
 TilePyramidCut
 ==========
 
-TilePyramidCut removes files from a tile pyramids.
+TilePyramidCut prunes or copes files from a tile pyramids based on one or more geojson polygons.
 
 .. image:: https://badge.fury.io/py/tilematrix.svg
     :target: https://badge.fury.io/py/tilematrix

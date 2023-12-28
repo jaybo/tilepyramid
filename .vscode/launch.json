@@ -31,17 +31,17 @@
             "justMyCode": true,
             "args": [
                 "--src",
-                "c:/junk/",
+                "c:/charts/noaa.feet/",
                 "--dst",
-                "c:/junk2/",
+                "c:/charts/out/",
                 "--op",
                 "copy",
                 "--polyfile",
-                "polygons/test2.json",
+                "polygons/washington.json",
                 "--zbegin",
                 "3",
                 "--zend",
-                "6"
+                "9"
             ]
         },
         {
