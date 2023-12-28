@@ -37,7 +37,7 @@
                 "--op",
                 "copy",
                 "--polyfile",
-                "polygons/washington.json",
+                "polygons/washington_DeepZoom.json",
                 "--zbegin",
                 "3",
                 "--zend",

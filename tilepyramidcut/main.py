@@ -53,7 +53,12 @@ def geojson_to_multipolygon (path):
   """ Given a JSON file containing a DeepZoom feature list of one or more LineStrings, convert it to a shapely multipolygon"""
   with open(path, "r") as read_file:
     geo = json.load(read_file)
-    featureCollection = geo["featureCollection"]
+    if "featureCollection" in geo:
+        # geojson is embedded in a DeepZoom trip
+        featureCollection = geo["featureCollection"]
+    else:
+      # regular geoson
+      featureCollection = geo
     features = featureCollection["features"]
 
     t4326 = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
