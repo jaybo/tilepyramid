@@ -30,7 +30,7 @@ conda create --name <env> --file requirements.yml
 ## Usage
 
 ```
-usage: main.py [-h] --src SRC [--dst DST] --polyfile POLYFILE --op {prune,copy} --zbegin ZBEGIN --zend ZEND [--version]
+usage: tilepyramidcut.py [-h] --src SRC [--dst DST] --polyfile POLYFILE --op {prune,copy} --zbegin ZBEGIN --zend ZEND [--version]
 
 options:
   -h, --help           show this help message and exit
