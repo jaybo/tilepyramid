@@ -102,7 +102,7 @@ def op(args):
 
   multiPolygon = geojson_to_multipolygon(args.polyfile)
 
-  for zoom in range(args.zbegin, args.zend):
+  for zoom in range(args.zbegin, args.zend+1):
     tiles = tp.tiles_from_geom(multiPolygon, zoom)  
     for tile in tiles:
       src_path = tuple_to_path(args.src, tile)
@@ -144,12 +144,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     # Required positional argument
-    parser.add_argument("--src", help="source directory to process")
+    parser.add_argument("--src", help="source directory to process", dest="src", required=True)
     parser.add_argument("--dst", action="store", dest="dst", help="destination directory for copy op")
     parser.add_argument("--polyfile", action="store", dest="polyfile", required=True, type=str, help="json file containing geojson geometry of Polygon(s) to prune or copy")
     parser.add_argument("--op", action="store", choices=["prune", "copy"], required=True, help="the operation to perform")
     parser.add_argument("--zbegin", action="store", dest="zbegin", required=True, type=int, help= "start zoom")
-    parser.add_argument("--zend", action="store", dest="zend", required=True, type=int, help="end zoom NOT INCLUSIVE")
+    parser.add_argument("--zend", action="store", dest="zend", required=True, type=int, help="end zoom")
     
     # Specify output of "--version"
     parser.add_argument(
