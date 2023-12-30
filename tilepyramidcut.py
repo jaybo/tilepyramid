@@ -34,12 +34,22 @@ def dir_is_empty(path):
   return None
 
 
-def dir_delete_if_empty(path):
-  """ Delete the directory if empty """
+def dir_delete_if_empty(args, tp: TilePyramid, tile: Tile, path: str):
+  """ Delete the directory if empty, and walk up the pyramid recursively deleting any empty ancestor directories.
+   return True if directory was deleted """
   if os.path.isdir(path):
     with os.scandir(path) as it:
       if not any(it):
+        # dir is empty
         os.rmdir(path)
+        # recursively walk up the pyramid checking if parent is empty
+        parent = tile.get_parent()
+        if parent and parent.zoom >= args.zbegin:
+          parent_path = tuple_to_path(args.src, parent)
+          parent_dir = os.path.dirname(parent_path)
+          while dir_delete_if_empty(args, tp, parent, parent_dir):
+            return True
+  return False
 
 
 def tuple_to_path (root, zyx):
@@ -50,7 +60,9 @@ def tuple_to_path (root, zyx):
 
 
 def geojson_to_multipolygon (path):
-  """ Given a JSON file containing a DeepZoom feature list of one or more LineStrings, convert it to a shapely multipolygon"""
+  """ Given a JSON file containing containing LatLng LINESTIRNGS OR POLYGONS,
+  as either a DeepZoom feature list or else a normal geojson feature list, 
+  convert it to a shapely multipolygon in ESPG:3857 (UTM meters) units."""
   with open(path, "r") as read_file:
     geo = json.load(read_file)
     if "featureCollection" in geo:
@@ -67,6 +79,7 @@ def geojson_to_multipolygon (path):
     for feature in features:
       xx = list(map(lambda p:p[0], feature["geometry"]["coordinates"]))
       yy = list(map(lambda p:p[1], feature["geometry"]["coordinates"]))
+      # following not needed: shapely autoconverts LINESTRING to POLYGON
       # xx.append(xx[0])
       # yy.append(yy[0])
       mxx, myy = t4326.transform(xx, yy)
@@ -82,6 +95,7 @@ def geojson_to_multipolygon (path):
 
 
 def test (args):
+  """ LatLng to UTM and back """
   tp = TilePyramid("mercator")
 
   lon = 95.99
@@ -109,9 +123,10 @@ def op(args):
 
       if os.path.isfile(src_path):
         if args.op == "prune":
+          print ("prune: ", src_path)
           os.remove(src_path)
           dir_path = os.path.dirname(src_path)
-          dir_delete_if_empty(dir_path)
+          dir_delete_if_empty(args, tp, tile, dir_path)
         elif args.op == "copy":
           dst_path = tuple_to_path(args.dst, tile)
           dst_dir = os.path.dirname(dst_path)

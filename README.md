@@ -7,22 +7,26 @@ A Python utility which prunes or copies files from an image tile pyramid.  The r
 [https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection](https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection)
 
 - The area to be pruned or copied can be defined by a geojson `LINESTRING` or `POLYGON`. <br/>Or you can
-use a [DeepZoom](https://www.deepzoom.com) trip containing routes which are automatically closed to define the Polygon.
+use a [DeepZoom](https://www.deepzoom.com) trip containing one or more routes which are automatically closed to define the Polygon(s).
+- Available operations are:
+  - **Prune**: remove tiles within the Polygon bounds
+  - **Copy**: duplicaate tiles with the Polygon bounds to the `--dst` directory. Any existing tiles in the destination directory
+  will be silently overwritten.
 - You can specify the range of zoom levels to be pruned or copied.
 - You can specify the source and destination directories.
-- Based on [tilematrix](https://github.com/ungarj/tilematrix) which does most of the heavy lifting.
+- Warning: Does not handle interior Polygons (Polygon inside another Polygon).
 
 ## Installation
 
 Warning: installation includes [proj](https://github.com/OSGeo/PROJ) which is not a picnic to install.  I'd start with a new environment.
 
-### Pip
+#### Pip
 ```
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
-### Conda
+#### Conda
 ```
 conda create --name <env> --file requirements.yml
 ```

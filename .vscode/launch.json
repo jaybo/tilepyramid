@@ -53,15 +53,15 @@
             "justMyCode": true,
             "args": [
                 "--src",
-                "c:/junk/",
+                "c:/charts/noaa.feet/",
                 "--op",
                 "prune",
                 "--polyfile",
-                "polygons/test2.json",
+                "polygons/washington_DeepZoom.json",
                 "--zbegin",
                 "3",
                 "--zend",
-                "6"
+                "9"
             ]
         }
     ]
