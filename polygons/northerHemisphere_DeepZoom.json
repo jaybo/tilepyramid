@@ -1,0 +1,202 @@
+{
+    "id": "46d88c0d-86b0-4f17-97b1-94d6372c8610",
+    "pk": "aee7a7a3-f582-45b6-9532-58455576b51a",
+    "name": "Cut, Northern Hemisphere",
+    "type": "trip",
+    "access": "private",
+    "bboxPolygon": {
+        "type": "Feature",
+        "bbox": [-179.06409, 0.31888, 179.13249, 84.16186],
+        "properties": {},
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-179.06409, 0.31888],
+                    [179.13249, 0.31888],
+                    [179.13249, 84.16186],
+                    [-179.06409, 84.16186],
+                    [-179.06409, 0.31888]
+                ]
+            ]
+        }
+    },
+    "events": {
+        "pre": [
+            {
+                "name": "0",
+                "label": "mapBaseLayer",
+                "type": "json",
+                "value": "{\"baseLayer\":\"outdoors\"}",
+                "template": 0,
+                "saveToView": true,
+                "description": "set map baseLayer, either: 'satellite' or 'outdoors'",
+                "played": true
+            },
+            {
+                "name": "1",
+                "label": "mapJumpTo",
+                "type": "json",
+                "value": "{\n  \"center\": [\n    -5.52578,\n    0\n  ],\n  \"zoom\": 0.62205,\n  \"pitch\": 0,\n  \"bearing\": 0\n}",
+                "saveToView": true,
+                "description": "jump instantaneously to point [lng, lat]",
+                "played": true
+            },
+            {
+                "name": "2",
+                "label": "mapLockToRoute",
+                "type": "json",
+                "value": "{\"lockToRoute\": false, \"orientToRoute\": false}",
+                "saveToView": true,
+                "description": "move the map center to the current route location, and orient travel to the route.",
+                "played": true
+            },
+            {
+                "name": "3",
+                "label": "mapOpacityChart",
+                "type": "json",
+                "value": "{\"opacity\":0.57}",
+                "saveToView": true,
+                "description": "opacity of chart, range: 0 to 1, default: 0.6",
+                "played": true
+            },
+            {
+                "name": "4",
+                "label": "mapOpacityPilotCharts",
+                "type": "json",
+                "value": "{\"opacity\":0}",
+                "saveToView": true,
+                "description": "opacity of pilot charts, range: 0 to 1,  default: 0.0",
+                "played": true
+            },
+            {
+                "name": "5",
+                "label": "mapOpacityTides",
+                "type": "json",
+                "value": "{\"opacity\":0.45}",
+                "saveToView": true,
+                "description": "opacity of tide boxes and current arrows, range: 0 to 1,  default: 0.9",
+                "played": true
+            },
+            {
+                "name": "6",
+                "label": "mapOpacityWeatherText",
+                "type": "json",
+                "value": "{\"opacity\":1}",
+                "saveToView": true,
+                "description": "opacity of weather text in the center of the screen,  default: 1.0",
+                "played": true
+            },
+            {
+                "name": "7",
+                "label": "rate",
+                "type": "json",
+                "value": "{\"rate\" : 1116.85826}",
+                "saveToView": true,
+                "description": "rate: 1 is realtime, 60 is one minute per second, 3600 is one hour per second",
+                "played": true
+            },
+            {
+                "name": "8",
+                "label": "showTab",
+                "type": "json",
+                "value": "{\n  \"tab\": \"trips\",\n  \"ifMobile\": false\n}",
+                "saveToView": true,
+                "description": "either trips, routes, markers, tracks, tides, info, trips, settings",
+                "played": true
+            },
+            {
+                "name": "9",
+                "label": "tideOrCurrent",
+                "type": "json",
+                "value": "{\n  \"location\": {\n    \"lat\": 36.92833,\n    \"lng\": -75.99333\n  },\n  \"type\": \"current\"\n}",
+                "template": "{location: {lng: -122.4194, lat: 37.7749}, type: 'tide'}",
+                "saveToView": true,
+                "description": "set a tide or current station to view as a graph by approximate location. ",
+                "played": true
+            },
+            {
+                "name": "10",
+                "label": "timespan",
+                "type": "json",
+                "value": "{\n  \"label\": \"all routes\",\n  \"days\": 1,\n  \"type\": \"routes\"\n}",
+                "saveToView": true,
+                "template": "{label: '1 day', type: 'days', days: 1}",
+                "description": "type: days, route, routes, track, tracks, realtime",
+                "played": true
+            },
+            {
+                "name": "11",
+                "label": "tripReschedule",
+                "type": "json",
+                "value": "{\"date\":\"today\",\"deltaDays\":0}",
+                "saveToView": true,
+                "template": "{date: YYYY-MM-DD, deltaDays: 0}",
+                "description": "{date: YYYY-MM-DD, deltaDays: 0}, or {date: \"today\"} ",
+                "played": true
+            }
+        ],
+        "during": [],
+        "post": []
+    },
+    "featureCollection": {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "id": "9842a8abeec9ce1275ef9fd03472c4bf",
+                "type": "Feature",
+                "properties": {
+                    "isRoute": true,
+                    "name": "route 2",
+                    "color": "#ff0000",
+                    "isVisible": true,
+                    "length": 33734.77533,
+                    "colorOuter": "#FFFFFF",
+                    "speed": 44,
+                    "departureTime": "2023-12-31T01:11:00.000Z",
+                    "arrivalTime": "2024-01-31T23:52:57.981Z",
+                    "endPointSelected": 0
+                },
+                "geometry": {
+                    "coordinates": [
+                        [-177.62775, 83.21882],
+                        [-178.93002, 60.03343],
+                        [-178.62984, 20.41073],
+                        [-179.06409, 0.37728],
+                        [-134.35104, 0.4762],
+                        [-90.28544, 0.40215],
+                        [-2.96552, 0.31888],
+                        [80.02491, 1.14443],
+                        [178.73072, 0.45217],
+                        [179.13249, 42.25069],
+                        [178.90214, 84.05254],
+                        [160.38031, 84.11499],
+                        [139.45016, 84.06897],
+                        [120.66315, 84.01256],
+                        [99.65884, 84.08395],
+                        [80.26779, 84.02767],
+                        [60.03495, 84.16186],
+                        [40.36188, 84.04545],
+                        [20.52379, 84.05305],
+                        [0.63976, 84.03529],
+                        [-39.59101, 83.77093],
+                        [-59.99469, 84.02436],
+                        [-76.93711, 83.61903],
+                        [-123.0752, 83.42432],
+                        [-154.69508, 83.62245],
+                        [-177.28059, 83.73299]
+                    ],
+                    "type": "LineString"
+                }
+            }
+        ],
+        "bbox": [-179.06409, 0.31888, 179.13249, 84.16186]
+    },
+    "routeCount": 1,
+    "routesTotalLength": 33734.77533,
+    "routesTotalDurationInDays": 31.94581,
+    "markerCount": 0,
+    "trackCount": 0,
+    "tracksTotalLength": 0,
+    "tripMode": ["power", "sail"]
+}

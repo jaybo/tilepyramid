@@ -42,6 +42,8 @@ def dir_delete_if_empty(args, tp: TilePyramid, tile: Tile, path: str):
       if not any(it):
         # dir is empty
         os.rmdir(path)
+        if args.verbose >= 1:
+          logger.info(f"rmdir: {path}")
         # recursively walk up the pyramid checking if parent is empty
         parent = tile.get_parent()
         if parent and parent.zoom >= args.zbegin:
@@ -115,25 +117,34 @@ def op(args):
   tp = TilePyramid("mercator")
 
   multiPolygon = geojson_to_multipolygon(args.polyfile)
+  count = 0
 
   for zoom in range(args.zbegin, args.zend+1):
+    logger.info (f"Zoom: {zoom}")
     tiles = tp.tiles_from_geom(multiPolygon, zoom)  
     for tile in tiles:
       src_path = tuple_to_path(args.src, tile)
 
       if os.path.isfile(src_path):
+        count = count + 1
         if args.op == "prune":
-          print ("prune: ", src_path)
+          if (args.verbose > 1):
+            print ("prune: ", src_path)
           os.remove(src_path)
           dir_path = os.path.dirname(src_path)
           dir_delete_if_empty(args, tp, tile, dir_path)
         elif args.op == "copy":
+          if (args.verbose > 1):
+            print ("copy: ", src_path)
           dst_path = tuple_to_path(args.dst, tile)
           dst_dir = os.path.dirname(dst_path)
           os.makedirs(dst_dir, exist_ok = True)
           shutil.copy2(src_path, dst_path)
       else:
-        print (src_path)
+        if (args.verbose > 1):
+          print ("missing: ", src_path)
+
+  logger.info(f"TOTAL {args.op}: {count}")
 
 
 def main(args):
@@ -153,7 +164,6 @@ def main(args):
 
     op(args)
 
-    logger.info("completed")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -166,6 +176,13 @@ if __name__ == "__main__":
     parser.add_argument("--zbegin", action="store", dest="zbegin", required=True, type=int, help= "start zoom")
     parser.add_argument("--zend", action="store", dest="zend", required=True, type=int, help="end zoom")
     
+        # Optional verbosity counter (eg. -v, -vv, -vvv, etc.)
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="count",
+        default=0,
+        help="Verbosity (-v, -vv, etc)")
     # Specify output of "--version"
     parser.add_argument(
         "--version",
